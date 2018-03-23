@@ -1,0 +1,10 @@
+[
+    {
+        "sobject": "Product2",
+        "saveRefs": true,
+        "resolveRefs": false,
+        "files": [
+            "sfdx-demo-data-Product2s.json"
+        ]
+    }
+]
