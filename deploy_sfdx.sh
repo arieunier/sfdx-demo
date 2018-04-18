@@ -52,5 +52,6 @@ echo "Sending Metadata Api Package to the $DEVHUBALIAS Organisation"
 sfdx force:mdapi:deploy -d mdapi_output_dir  -u $DEVHUBALIAS -w 1
 read -p "------------- Finished, type enter to continue " 
 
-
-
+echo "Updating user permissions" 
+sfdx force:user:permset:assign -n platform_demo -u $DEVHUBALIAS
+read -p "------------- Finished, type enter to continue " 
