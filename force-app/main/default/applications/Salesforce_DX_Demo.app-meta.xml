@@ -10,8 +10,8 @@
     <formFactors>Large</formFactors>
     <label>Salesforce DX Demo Application</label>
     <navType>Standard</navType>
-    <tabs>standard-ProductItem</tabs>
     <tabs>HerokuLogs__c</tabs>
+    <tabs>standard-Product2</tabs>
     <uiType>Lightning</uiType>
     <utilityBar>Salesforce_DX_Demo_Application_UtilityBar</utilityBar>
 </CustomApplication>
