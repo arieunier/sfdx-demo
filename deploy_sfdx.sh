@@ -1,8 +1,6 @@
 #!/bin/bash
 
 
-
-
 SAVEIFS=$IFS
 IFS=$(echo -en "\n\b")
 # set me
@@ -32,7 +30,7 @@ echo "Updating user permissions"
 for i in `ls force-app/main/default/permissionsets/`
 do
     echo 'Treating Permission file : '$i
-    permissionName=(${i//./ })
+    permissionName=`echo $i | cut -d'.' -f1`
     echo permissionName=$permissionName
     sfdx force:user:permset:assign -n $permissionName -u $SCRATCHORGALIAS
 done
@@ -65,7 +63,7 @@ echo "Updating user permissions"
 for i in `ls force-app/main/default/permissionsets/`
 do
     echo 'Treating Permission file : '$i
-    permissionName=(${i//./ })
+    permissionName=`echo $i | cut -d'.' -f1`
     echo permissionName=$permissionName
     sfdx force:user:permset:assign -n $permissionName -u $DEVHUBALIAS
 done
