@@ -27,7 +27,8 @@ sfdx force:data:tree:import --plan ./data/*plan.json --targetusername $SCRATCHOR
 read -p "------------- Finished, type enter to continue " 
 
 echo "Updating user permissions" 
-sfdx force:user:permset:assign -n platform_demo -u $SCRATCHORGALIAS
+sfdx force:user:permset:assign -n SFDX_App -u $SCRATCHORGALIAS
+sfdx force:user:permset:assign -n Heroku_Logs -u $SCRATCHORGALIAS
 
 echo "Generating password on $SCRATCHORGALIAS for Heroku Connect"
 sfdx force:user:password:generate
@@ -53,5 +54,6 @@ sfdx force:mdapi:deploy -d mdapi_output_dir  -u $DEVHUBALIAS -w 1
 read -p "------------- Finished, type enter to continue " 
 
 echo "Updating user permissions" 
-sfdx force:user:permset:assign -n platform_demo -u $DEVHUBALIAS
+sfdx force:user:permset:assign -n SFDX_App -u $DEVHUBALIAS
+sfdx force:user:permset:assign -n Heroku_Logs -u $DEVHUBALIAS
 read -p "------------- Finished, type enter to continue " 
