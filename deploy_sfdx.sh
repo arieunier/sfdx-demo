@@ -14,7 +14,6 @@ SCRATCHORGALIAS=$1
 DEVHUBALIAS=$2
 
 echo "Creating a new ScratchOrg=$SCRATCHORGALIAS in the developper hub $DEVHUBALIAS"
-
 sfdx force:org:create -s -f config/project-scratch-def.json -a $SCRATCHORGALIAS
 read -p "------------- Finished, type enter to continue "
 
@@ -24,6 +23,12 @@ read -p "------------- Finished, type enter to continue "
 
 echo "Pushing test data into $SCRATCHORGALIAS" 
 sfdx force:data:tree:import --plan ./data/*plan.json --targetusername $SCRATCHORGALIAS
+for i in `find . -type f -name '*plan.json'`
+do
+    echo 'Treating data file  : '$i
+    sfdx force:data:tree:import --plan $i --targetusername $SCRATCHORGALIAS
+done
+
 read -p "------------- Finished, type enter to continue " 
 
 echo "Updating user permissions" 
